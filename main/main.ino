@@ -23,6 +23,7 @@ DallasTemperature sensors(&oneWire);
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 int temp, hum, days;
+int curr_temp, curr_hum, curr_days;
 
 void setup(void)
 {
@@ -40,7 +41,13 @@ void setup(void)
   
   Serial.begin(9600);
   //setMode(); true if setup cmplted
+  if(setMode()){
+    lcd.clear();
+    lcd.print("Completed parameter setup"):
+    delay(1000);
 
+    //write into EEPROM 
+  }
   
 
 }
@@ -49,14 +56,20 @@ void loop(void)
 { 
   // Send the command to get temperatures
   sensors.requestTemperatures(); 
-
-  //print the temperature in Celsius
-  Serial.print("Temperature: ");
   Serial.print(sensors.getTempCByIndex(0));
-  Serial.print((char)176);//shows degrees character
-  Serial.print("C  |  ");
-
-  delay(500);
+  // read hum;
+  if(curr_temp < temp){
+    
+  }
+  if(curr_hum < hum){
+    
+  }
+  if(curr_temp >= temp){
+    
+  }
+  if(curr_hum >= hum){
+    
+  }
 }
 
 void setMode(){
