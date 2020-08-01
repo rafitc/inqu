@@ -1,2 +1,2 @@
-# inqu
+# inCu
 Firmware for Eqq incubator
